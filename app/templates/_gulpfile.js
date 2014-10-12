@@ -32,7 +32,10 @@ gulp.task('scripts', function(){
 gulp.task('styles', function(){
   gulp.src('src/scss/**/*.scss')
       .pipe(plumber())
-      .pipe(sass({style: 'expanded'}))
+      .pipe(sass({
+				style: 'expanded',
+				loadPath: process.cwd() + '/bower_components',
+				}))
       .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
       .pipe(gulp.dest('build/css/'));
 });
@@ -47,7 +50,7 @@ gulp.task('fileinclude', function() {
     .pipe(plumber())
     .pipe(fileinclude({
       prefix: '@@',
-      basepath: '@file'
+      basepath: '@root'
     }))
     .pipe(gulp.dest('build/'));
 });
@@ -65,12 +68,10 @@ gulp.task('images', function () {
 
 gulp.task('watch', function(){
   gulp.watch('src/js/*.js', ['scripts']);
-  gulp.watch('src/scss/**/*.scss', ['styles']);
+  gulp.watch(['src/scss/**/*.scss', 'src/scss/*.scss'], ['styles']);
   gulp.watch(['src/*.html', 'src/inc/**/*.html'], ['fileinclude']);
   gulp.watch(['src/img/*'], ['images']);
 });
 
 gulp.task('default', ['fileinclude', 'html', 'scripts', 'styles', 'images', 'watch', 'webserver']);
 gulp.task('build', ['fileinclude', 'html', 'scripts', 'styles', 'images']);
-
-module.exports = gulp;
