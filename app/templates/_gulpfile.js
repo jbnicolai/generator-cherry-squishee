@@ -16,6 +16,7 @@ gulp.task('webserver', function() {
   gulp.src('build/')
     .pipe(webserver({
       livereload: true,
+      port: 3501,
       open: true
     }));
 });
