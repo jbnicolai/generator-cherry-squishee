@@ -4,6 +4,8 @@ var path = require('path');
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 
+var dirc = 'app/templates';
+
 var CherrySquisheeGenerator = yeoman.generators.Base.extend({
   initializing: function () {
     this.pkg = require('../package.json');
@@ -34,15 +36,14 @@ var CherrySquisheeGenerator = yeoman.generators.Base.extend({
   writing: {
     app: function () {
       this.dest.mkdir('app');
-      this.dest.mkdir('app/templates');
-      this.dest.mkdir('app/templates/src');
-      this.dest.mkdir('app/templates/src/scss/');
-      this.dest.mkdir('app/templates/src/includes/');
-      this.dest.mkdir('app/templates/src/img/');
-      this.dest.mkdir('app/templates/src/js/');
+      this.dest.mkdir(dirc);
+      this.dest.mkdir(dirc+'/src');
+      this.dest.mkdir(dirc+'/src/scss/');
+      this.dest.mkdir(dirc+'/src/includes/');
+      this.dest.mkdir(dirc+'/src/img/');
+      this.dest.mkdir(dirc+'/src/js/');
 
-      this.src.copy('app/src/scss/_main.scss', 'app/src/scss/main.scss');
-      
+      this.src.copy(dirc+'/src/scss/_main.scss', dirc+'/src/scss/main.scss');
       this.src.copy('_package.json', 'package.json');
       this.src.copy('_bower.json', 'bower.json');
       this.src.copy('_gulpfile.js', 'Gulpfile.js');
