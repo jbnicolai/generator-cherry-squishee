@@ -1,36 +1,19 @@
 {
-  "name": "generator-cherry-squishee",
-  "version": "0.0.1",
-  "description": "Yeoman generator",
-  "license": "MIT",
-  "main": "app/index.js",
-  "repository": "charlespeters/generator-cherry-squishee",
-  "author": {
-    "name": "charles peters",
-    "email": "charlespeters42@gmail.com",
-    "url": "https://github.com/charlespeters"
-  },
-  "engines": {
-    "node": ">=0.10.0"
-  },
-  "scripts": {
-    "test": "mocha"
-  },
-  "files": [
-    "app"
-  ],
-  "keywords": [
-    "yeoman-generator"
-  ],
-  "dependencies": {
-    "yeoman-generator": "^0.17.0",
-    "chalk": "^0.5.0",
-    "yosay": "^0.3.0"
-  },
+  "name": "package",
+  "version": "0.0.0",
+  "dependencies": {},
   "devDependencies": {
-    "mocha": "*"
-  },
-  "peerDependencies": {
-    "yo": ">=1.0.0"
+    "gulp": "^3.8.8",
+    "gulp-autoprefixer": "0.0.10",
+    "gulp-concat": "^2.4.1",
+    "gulp-file-include": "^0.5.1",
+    "gulp-imagemin": "^0.6.2",
+    "gulp-plumber": "~0.6.5",
+    "gulp-rename": "^1.2.0",
+    "gulp-ruby-sass": "^0.6.0",
+    "gulp-sass": "^0.7.3",
+    "gulp-uglify": "^0.3.2",
+    "gulp-util": "^3.0.0",
+    "gulp-webserver": "^0.8.2"    
   }
 }

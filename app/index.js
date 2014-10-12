@@ -4,7 +4,10 @@ var path = require('path');
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 
-var dirc = 'app/templates';
+var dirc = 'src';
+var sassd = dirc + '/scss';
+var jsd = dirc + '/js';
+var incd = dirc + '/includes';
 
 var CherrySquisheeGenerator = yeoman.generators.Base.extend({
   initializing: function () {
@@ -16,13 +19,13 @@ var CherrySquisheeGenerator = yeoman.generators.Base.extend({
 
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the peachy CherrySquishee generator!'
+      'Welcome, have a Cherry Squishee.'
     ));
 
     var prompts = [{
       type: 'confirm',
       name: 'someOption',
-      message: 'Would you like to enable this option?',
+      message: 'Ready?',
       default: true
     }];
 
@@ -35,15 +38,22 @@ var CherrySquisheeGenerator = yeoman.generators.Base.extend({
 
   writing: {
     app: function () {
-      this.dest.mkdir('app');
       this.dest.mkdir(dirc);
-      this.dest.mkdir(dirc+'/src');
-      this.dest.mkdir(dirc+'/src/scss/');
-      this.dest.mkdir(dirc+'/src/includes/');
-      this.dest.mkdir(dirc+'/src/img/');
-      this.dest.mkdir(dirc+'/src/js/');
+      this.dest.mkdir(dirc+'/scss/');
+      this.dest.mkdir(dirc+'/includes/');
+      this.dest.mkdir(dirc+'/img/');
+      this.dest.mkdir(dirc+'/js/');
 
-      this.src.copy(dirc+'/src/scss/_main.scss', dirc+'/src/scss/main.scss');
+      // SASS
+      this.src.copy(sassd+'/main.scss', sassd+'/main.scss');
+
+      // JS
+      this.src.copy(jsd+'/global.js', jsd+'/global.js');
+
+      // HTML
+      this.src.copy(dirc+'/_index.html', dirc+'/index.html');
+      this.src.copy(incd+'/header.html', incd+'/header.html');
+
       this.src.copy('_package.json', 'package.json');
       this.src.copy('_bower.json', 'bower.json');
       this.src.copy('_gulpfile.js', 'Gulpfile.js');
