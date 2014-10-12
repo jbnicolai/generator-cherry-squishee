@@ -35,9 +35,11 @@ var CherrySquisheeGenerator = yeoman.generators.Base.extend({
     app: function () {
       this.dest.mkdir('app');
       this.dest.mkdir('app/templates');
+      this.dest.mkdir('app/templates/src');
 
       this.src.copy('_package.json', 'package.json');
       this.src.copy('_bower.json', 'bower.json');
+      this.src.copy('_gulpfile.js', 'gulpfile.js');
     },
 
     projectfiles: function () {

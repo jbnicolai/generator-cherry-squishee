@@ -1,6 +1,15 @@
 {
   "name": "package",
   "version": "0.0.0",
-  "dependencies": {}
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "arsenal.scss": "~0.0.1",
+    "twelve": "~0.1.0"
+  }
 }
-
