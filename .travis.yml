@@ -1,0 +1,7 @@
+language: node_js
+node_js:
+  - '0.10'
+before_install:
+  - currentfolder=${PWD##*/}
+  - if [ "$currentfolder" != 'generator-cherry-squishee' ]; then cd .. && eval "mv $currentfolder generator-cherry-squishee" && cd generator-cherry-squishee; fi
+
